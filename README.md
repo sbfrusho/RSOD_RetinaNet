@@ -136,15 +136,12 @@ Comprehensive evaluation using COCO metrics:
 - Detection visualizations
 
 ## Model Performance
-     📊 Final COCO Summary
-┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
-┃ Metric              ┃ Value  ┃
-┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
-│ mAP@[IoU=0.50:0.95] │ 0.7466 │
-│ mAP@0.5(FINAL)      │ 0.9633 │
-│ AR@100 (all)        │ 0.7923 │
-│ AR@100 (large)      │ 0.8063 │
-'''--------------------------------'''
+| Metric              | Value  |
+|---------------------|--------|
+| mAP@[IoU=0.50:0.95] | **0.7466** |
+| mAP@0.5 (FINAL)     | **0.9633** |
+| AR@100 (all)        | **0.7923** |
+| AR@100 (large)      | **0.8063** |
 
 
 Based on the thesis results:
