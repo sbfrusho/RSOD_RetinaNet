@@ -268,3 +268,7 @@ If you use this code in your research, please cite:
   howpublished={\\url{https://github.com/your-repo}}
 }
 ```
+
+## 📂 Project Resources
+
+🔗 [Google Drive Folder (Weights, Results, Samples)](https://drive.google.com/drive/folders/1Xn3mAbkeYyAbpgvpZqK-QgMa7LlLg-2I?usp=drive_link)
