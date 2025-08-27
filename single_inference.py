@@ -8,6 +8,7 @@ import torch
 from PIL import Image, ImageDraw, ImageFont
 import matplotlib.pyplot as plt
 import argparse
+import numpy as np
 
 from model import get_model, load_model
 from transforms import get_inference_transform
@@ -56,7 +57,7 @@ def draw_predictions(image, predictions, class_names, confidence_threshold=0.5):
         font = ImageFont.load_default()
     
     # Colors for each class
-    colors = ['red', 'blue', 'green', 'orange', 'purple']
+    colors = ['red', 'blue', 'green', 'maroon', 'purple']
     
     boxes = predictions['boxes'].cpu().numpy()
     scores = predictions['scores'].cpu().numpy()
@@ -158,7 +159,7 @@ def main():
     parser.add_argument("--image", required=True, help="Path to input image")
     parser.add_argument("--weights", required=True, help="Path to model weights")
     parser.add_argument("--confidence", type=float, default=0.5, help="Confidence threshold")
-    parser.add_argument("--save", help="Path to save result image")
+    parser.add_argument("--save",default="D:\cse 4-2\RSOD_RetinaNet\Results\detect", help="Path to save result image")
     
     args = parser.parse_args()
     
@@ -205,10 +206,27 @@ def main():
     )
     
     # Visualize results
-    save_path = args.save if args.save else None
+    # save_path = args.save if args.save else None
+    # visualize_results(original_image, result_image, save_path)
+    
+    # print(f"\nInference completed! Found {detection_count} objects.")
+
+    # Make sure save directory exists
+    os.makedirs(args.save, exist_ok=True)
+
+    # Get the input image filename
+    image_name = os.path.basename(args.image)
+    # Optionally add suffix to avoid overwriting
+    save_file = os.path.splitext(image_name)[0] + "_detected.jpg"
+
+    # Final save path
+    save_path = os.path.join(args.save, save_file)
+
+    # Visualize + save
     visualize_results(original_image, result_image, save_path)
     
     print(f"\nInference completed! Found {detection_count} objects.")
+
 
 if __name__ == "__main__":
     main()
